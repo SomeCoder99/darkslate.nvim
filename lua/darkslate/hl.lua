@@ -256,5 +256,6 @@ require("darkslate.plugin.blink_cmp")(hl, o)
 require("darkslate.plugin.flash")(hl, o)
 require("darkslate.plugin.snacks")(hl, o)
 require("darkslate.plugin.oil")(hl, o)
+require("darkslate.plugin.gitsigns")(hl, o)
 
 return hl
