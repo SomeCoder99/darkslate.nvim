@@ -249,6 +249,7 @@ hl.Changed = { fg = "$yellow0" }
 
 -- Language tweaks
 require("darkslate.lang.css")(hl, o)
+require("darkslate.lang.markdown")(hl, o)
 
 -- Plugin highlights
 require("darkslate.plugin.lazy_nvim").highlight(hl, o)
