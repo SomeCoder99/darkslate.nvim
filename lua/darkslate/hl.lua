@@ -251,11 +251,11 @@ hl.Changed = { fg = "$yellow0" }
 require("darkslate.lang.css")(hl, o)
 
 -- Plugin highlights
-require("darkslate.plugin.lazy_nvim")(hl, o)
-require("darkslate.plugin.blink_cmp")(hl, o)
-require("darkslate.plugin.flash")(hl, o)
-require("darkslate.plugin.snacks")(hl, o)
-require("darkslate.plugin.oil")(hl, o)
-require("darkslate.plugin.gitsigns")(hl, o)
+require("darkslate.plugin.lazy_nvim").highlight(hl, o)
+require("darkslate.plugin.blink_cmp").highlight(hl, o)
+require("darkslate.plugin.flash").highlight(hl, o)
+require("darkslate.plugin.snacks").highlight(hl, o)
+require("darkslate.plugin.oil").highlight(hl, o)
+require("darkslate.plugin.gitsigns").highlight(hl, o)
 
 return hl

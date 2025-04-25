@@ -1,4 +1,6 @@
-return function(hl, o)
+local M = {}
+
+function M.highlight(hl, o)
   hl.BlinkCmpMenu = { link = "Pmenu" }
   hl.BlinkCmpMenuBorder = { link = "FloatBorder" }
   hl.BlinkCmpMenuSelection = { link = "PmenuSel" }
@@ -24,3 +26,5 @@ return function(hl, o)
     hl["BlinkCmpKind" .. kind] = { fg = color }
   end
 end
+
+return M

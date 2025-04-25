@@ -1,4 +1,6 @@
-return function(hl, _)
+local M = {}
+
+function M.highlight(hl, _)
   hl.GitSignsAdd = { link = "Added" }
   hl.GitSignsChange = { link = "Changed" }
   hl.GitSignsDelete = { link = "Deleted" }
@@ -24,3 +26,5 @@ return function(hl, _)
   hl.GitSignsUntrackedCul = { link = "GitSignsUntracked" }
   hl.GitSignsCurrentLineBlame = { link = "NonText" }
 end
+
+return M

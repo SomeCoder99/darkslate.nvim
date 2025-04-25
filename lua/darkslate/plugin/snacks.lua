@@ -1,4 +1,6 @@
-return function(hl, _)
+local M = {}
+
+function M.highlight(hl, _)
   hl.SnacksPickerFile = { fg = "$dark12" }
   hl.SnacksPickerBold = { bold = true }
   hl.SnacksPickerItalic = { italic = true }
@@ -29,3 +31,5 @@ return function(hl, _)
   hl.SnacksPickerGitBranch = { fg = "$orange0" }
   hl.SnacksPickerCol = { fg = "$orange0" }
 end
+
+return M

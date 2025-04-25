@@ -1,4 +1,6 @@
-return function(hl, _)
+local M = {}
+
+function M.highlight(hl, _)
   hl.OilHidden = { fg = "$dark9" }
   hl.OilDir = { fg = "$cyan2", bold = true }
   hl.OilDirHidden = { fg = "$cyan0", bold = true }
@@ -25,3 +27,5 @@ return function(hl, _)
   hl.OilTrash = { fg = "$red0" }
   hl.OilTrashSourcePath = { fg = "$dark8" }
 end
+
+return M

@@ -1,4 +1,6 @@
-return function(hl, _)
+local M = {}
+
+function M.highlight(hl, _)
   hl.LazyBold = { bold = true }
   hl.LazyButton = { link = "Visual" }
   hl.LazyButtonActive = { bg = "$dark4", fg = "$dark13" }
@@ -35,3 +37,5 @@ return function(hl, _)
   hl.LazyValue = { fg = "$dark13" }
   hl.LazyWarning = { link = "DiagnosticWarn" }
 end
+
+return M
