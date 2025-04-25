@@ -1,5 +1,9 @@
+---@class darkslate.opts.plugin
+--- config for 'lualine.nvim' plugin
+---@field lualine? darkslate.opts.plugin.lualine
+
 ---@class darkslate.opts
---- key-value table with color name and color as its key and value
+--- key-value table with color name and color as its key and value.
 ---
 --- example:
 --- ```lua
@@ -35,8 +39,13 @@
 ---   Class = "$green2",
 --- }
 --- ```
+---
+--- used for completion plugins (e.g [blink.cmp]() [nvim-cmp]()) icon color
 ---@field kind_color? table<string, string>
+--- configuration for specific plugins.
+---@field plugin? darkslate.opts.plugin
 
+local utils = require("darkslate.utils")
 local M = {
   ---@type darkslate.opts
   opts = {
@@ -68,16 +77,9 @@ local M = {
       Operator = "$red0",
       TypeParamter = "$orange0",
     },
+    plugin = require("darkslate.plugin"),
   }
 }
-
-function M.notify_error(cause, hint)
-  local msg = "FORM: 'darkslate.nvim' plugin\nCAUSE: " .. cause
-  if hint then
-    msg = msg .. "\nHINT: " .. hint
-  end
-  vim.notify_once(msg, vim.log.levels.ERROR)
-end
 
 function M.expand_color(color)
   if type(color) ~= "string" then return color end
@@ -89,19 +91,9 @@ function M.expand_color(color)
     end
     local expanded_color = M.expand_color(got)
     if not expanded_color then
-      local available = ""
-      local i = 1
-      for colorname, _ in pairs(M.opts.color) do
-        if i > 1 then
-          available = available .. ", "
-        end
-        available = available .. colorname
-        i = i + 1
-      end
-
-      M.notify_error(
+      utils.notify_error(
         string.format("no color with name '%s'", name),
-        "available colors [" .. available .. "]"
+        "available colors [" .. utils.join_keys(M.opts.color, ", ") .. "]"
       )
       return
     end
@@ -122,7 +114,7 @@ function M.setup(opts)
   opts = opts or {}
   if opts.color ~= nil then
     if type(opts.color) ~= "table" then
-      M.notify_error(
+      utils.notify_error(
         string.format("when 'setup(opts)' is called, 'opts.color' has type %s", type(opts.color)),
         "'opt.color' must be a table with format '{[color_name]: color}'"
       )
@@ -135,7 +127,7 @@ function M.setup(opts)
   end
 
   if opts.hl ~= nil and type(opts.color) ~= "table" then
-    M.notify_error(
+    utils.notify_error(
       string.format("when 'setup(opts)' is called, 'opts.hl' has type %s", type(opts.color)),
         "'opt.hl' must be a table with format '{[hl_group_name]: vim.api.keyset.highlight}'"
     )
@@ -143,10 +135,9 @@ function M.setup(opts)
   end
   M.opts.hl = opts.hl
 
-  opts = opts or {}
   if opts.kind_color ~= nil then
     if type(opts.kind_color) ~= "table" then
-      M.notify_error(
+      utils.notify_error(
         string.format("when 'setup(opts)' is called, 'opts.kind_color' has type %s", type(opts.color)),
         "'opt.kind_color' must be a table with format '{[kind_name]: color}'"
       )
@@ -155,6 +146,30 @@ function M.setup(opts)
 
     for kind, value in pairs(opts.kind_color) do
       M.opts.kind_color[kind] = value
+    end
+  end
+
+  if opts.plugin ~= nil then
+    if type(opts.plugin) ~= "table" then
+      utils.notify_error(
+        string.format("when 'setup(opts)' is called, 'opts.plugin' has type %s", type(opts.color)),
+        "'opt.plugin' must be a table with format '{[plugin_name]: config}'"
+      )
+      return
+    end
+
+    for plugin_name, config in pairs(opts.plugin) do
+      if not M.opts.plugin[plugin_name] then
+        utils.notify(
+          vim.log.levels.WARN,
+          string.format("configuration for '%s' plugin doesn't exists", plugin_name),
+          "available plugins: [" .. utils.join_keys(M.opts.plugin) .. "]"
+        )
+      else
+        for k, v in pairs(config) do
+          M.opts.plugin[plugin_name][k] = v
+        end
+      end
     end
   end
 end
