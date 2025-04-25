@@ -25,7 +25,7 @@ hl.ModeMsg = { fg = "$dark14", bold = true }
 hl.MsgArea = { bg = "$dark0", fg = "$dark8" }
 hl.MsgSeparator = { bg = "$dark15", fg = "$dark1" }
 hl.MoreMsg = { fg = "$blue0" }
-hl.NonText = { fg = "$dark10" }
+hl.NonText = { fg = "$dark8" }
 hl.Normal = { bg = "$dark1", fg = "$dark12" }
 hl.NormalFloat = { bg = "$dark1", fg = "$dark12" }
 hl.FloatBorder = { fg = "$dark6" }
@@ -242,10 +242,10 @@ hl.DiffAdd = { bg = "$bg_green", fg = "$dark13" }
 hl.DiffChange = { bg = "$bg_yellow", fg = "$dark13" }
 hl.DiffDelete = { bg = "$bg_red", fg = "$dark13" }
 hl.DiffText = { bg = "$bg_blue", fg = "$dark13" }
-hl.Added = { fg = "$green2" }
-hl.Deleted = { fg = "$red2" }
-hl.Removed = { fg = "$red2" }
-hl.Changed = { fg = "$yellow2" }
+hl.Added = { fg = "$green0" }
+hl.Deleted = { fg = "$red0" }
+hl.Removed = { fg = "$red0" }
+hl.Changed = { fg = "$yellow0" }
 
 -- Language tweaks
 require("darkslate.lang.css")(hl, o)
