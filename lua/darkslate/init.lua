@@ -40,7 +40,7 @@
 --- }
 --- ```
 ---
---- used for completion plugins (e.g [blink.cmp]() [nvim-cmp]()) icon color
+--- used for completion plugins (e.g [blink.cmp](https://github.com/Saghen/blink.cmp)) icon color
 ---@field kind_color? table<string, string>
 --- configuration for specific plugins.
 ---@field plugin? darkslate.opts.plugin
