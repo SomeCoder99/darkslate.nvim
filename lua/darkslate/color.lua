@@ -79,19 +79,19 @@ return {
     dark15 =        "#a0a0a0",
 
     bg_red =        "#2e1717",
-    dark_red =      "#471d1d",
+    dark_red =      "#6a3232",
     red0 =          "#854030",
     red1 =          "#914545",
     red2 =          "#994a4a",
 
     bg_orange =     "#30261c",
-    dark_orange =   "#59381e",
+    dark_orange =   "#693f22",
     orange0 =       "#855c32",
     orange1 =       "#8f6235",
     orange2 =       "#946435",
 
     bg_yellow =     "#2e2b10",
-    dark_yellow =   "#444713",
+    dark_yellow =   "#504a25",
     yellow0 =       "#848739",
     yellow1 =       "#939643",
     yellow2 =       "#9fa349",
@@ -103,7 +103,7 @@ return {
     green2 =        "#4f804d",
 
     bg_cyan =       "#192629",
-    dark_cyan =     "#1c4544",
+    dark_cyan =     "#205a5a",
     cyan0 =         "#448c8a",
     cyan1 =         "#4c9694",
     cyan2 =         "#52a19e",
@@ -114,8 +114,8 @@ return {
     blue1 =         "#5b6599",
     blue2 =         "#6670a6",
 
-    bg_purple =     "#2b1d2b",
-    dark_purple =   "#4d164d",
+    bg_purple =     "#2b122b",
+    dark_purple =   "#552f55",
     purple0 =       "#7a4385",
     purple1 =       "#82498f",
     purple2 =       "#8f519e",

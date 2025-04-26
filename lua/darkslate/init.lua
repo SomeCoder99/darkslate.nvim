@@ -111,11 +111,16 @@ function M.reset_color_opt()
   M.opts.color = vim.tbl_extend("keep", color[M.opts.level] or color[1], {})
 end
 
----@param opts darkslate.opts
+M.reset_color_opt()
+
+---@param opts? darkslate.opts
 function M.setup(opts)
+  opts = opts or {}
+
   if opts.level ~= nil then
     if type(opts.level) == "number" then
       M.opts.level = math.floor(opts.level)
+      M.reset_color_opt()
     else
       utils.notify(
         vim.log.levels.WARN,
@@ -127,7 +132,6 @@ function M.setup(opts)
 
   if not M.opts.color then M.reset_color_opt() end
 
-  opts = opts or {}
   if opts.color ~= nil then
     if type(opts.color) ~= "table" then
       utils.notify_error(
@@ -232,6 +236,14 @@ function M.set_colorscheme()
       sp = sp,
     }))
   end
+end
+
+---reset color pallete and set colorscheme
+---@param opts? darkslate.opts
+function M.recolor(opts)
+  M.reset_color_opt()
+  M.setup(opts)
+  M.set_colorscheme()
 end
 
 return M
