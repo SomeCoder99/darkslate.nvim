@@ -1,7 +1,8 @@
 # Dark Slate
 A pure dark [Neovim](https://neovim.io) theme written in [Lua](https://lua.org).
 
-![Dark Slate Theme Preview](https://github.com/SomeCoder99/darkslate.nvim/blob/main/images/preview.png)
+![Dark Slate Theme Preview](https://github.com/SomeCoder99/darkslate.nvim/blob/main/images/preview1.png)
+![Dark Slate Theme Preview](https://github.com/SomeCoder99/darkslate.nvim/blob/main/images/preview2.png)
 
 ## Features
 - Easy to configure
@@ -36,9 +37,10 @@ A pure dark [Neovim](https://neovim.io) theme written in [Lua](https://lua.org).
       ---@module "darkslate"
       ---@type darkslate.opts
       opts = {
-          color = {}, -- create/override color name
-          hl = {}, -- create/override highlight group
-          plugin = {}, -- plugin specific configuration
+        level = 2, -- for brighter version
+        color = {}, -- create/override color name
+        hl = {}, -- create/override highlight group
+        plugin = {}, -- plugin specific configuration
       },
     }
     ```
