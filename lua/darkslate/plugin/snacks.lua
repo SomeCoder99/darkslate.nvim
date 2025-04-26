@@ -9,7 +9,7 @@ function M.highlight(hl, _)
   hl.SnacksPickerIcon = { fg = "$dark15" }
   hl.SnacksPickerLink = { fg = "$cyan2", underline = true }
   hl.SnacksPickerTime = { fg = "$green0" }
-  hl.SnacksPickerMatch = { fg = "$dark15", underline = true }
+  hl.SnacksPickerMatch = { fg = "$dark15", sp = "$dark11", underline = true }
   hl.SnacksPickerGitIssue = { fg = "$red1" }
   hl.SnacksPickerPrompt = { fg = "$cyan2" }
   hl.SnacksPickerRegister = { fg = "$green0" }

@@ -145,23 +145,24 @@ hl["@markup.italic"] = { italic = true }
 hl["@markup.strikethrough"] = { strikethrough = true }
 hl["@markup.underline"] = { underline = true }
 
-hl["@markup.heading"] = { fg = "$dark10", bold = true }
-hl["@markup.heading.1"] = { fg = "$dark10", bold = true }
-hl["@markup.heading.2"] = { fg = "$dark11", bold = true }
-hl["@markup.heading.3"] = { fg = "$dark12", bold = true }
-hl["@markup.heading.4"] = { fg = "$dark13", bold = true }
-hl["@markup.heading.5"] = { fg = "$dark14", bold = true }
-hl["@markup.heading.6"] = { fg = "$dark15", bold = true }
-hl["@markup.quote"] = { fg = "$dark12" }
-hl["@markup.math"] = { fg = "$dark13" }
+hl["@markup.heading.1"] = { fg = "$red2", bold = true }
+hl["@markup.heading.1"] = { fg = "$red2", bold = true }
+hl["@markup.heading.2"] = { fg = "$red2" }
+hl["@markup.heading.3"] = { fg = "$red1", bold = true }
+hl["@markup.heading.4"] = { fg = "$red1" }
+hl["@markup.heading.5"] = { fg = "$red0", bold = true }
+hl["@markup.heading.6"] = { fg = "$red0" }
+hl["@markup.heading"] = { fg = "$red0" }
+hl["@markup.quote"] = { fg = "$dark9" }
+hl["@markup.math"] = { fg = "$yellow0" }
 hl["@markup.link"] = { fg = "$cyan0" }
 hl["@markup.link.label"] = { fg = "$cyan0" }
 hl["@markup.link.url"] = { fg = "$cyan1", underline = true }
-hl["@markup.raw"] = { fg = "$dark11" }
+hl["@markup.raw"] = { fg = "$dark10" }
 hl["@markup.raw.block"] = { fg = "$dark13" }
-hl["@markup.list"] = { fg = "$dark12" }
-hl["@markup.list.checked"] = { fg = "$dark14" }
-hl["@markup.list.unchecked"] = { fg = "$dark10" }
+hl["@markup.list"] = { fg = "$orange2" }
+hl["@markup.list.checked"] = { fg = "$green2" }
+hl["@markup.list.unchecked"] = { fg = "$blue2" }
 
 hl["@diff.plus"] = { fg = "$green2" }
 hl["@diff.minus"] = { fg = "$red2" }
@@ -221,6 +222,7 @@ hl.DiagnosticSignWarn = { fg = "$yellow2" }
 hl.DiagnosticSignError = { fg = "$red2" }
 hl.DiagnosticSignDeprecated = { fg = "$yellow2" }
 
+hl.DiagnosticUnderlineOk = { sp = "$dark10", undercurl = true }
 hl.DiagnosticUnderlineWarn = { sp = "$yellow0", undercurl = true }
 hl.DiagnosticUnderlineInfo = { sp = "$cyan0", undercurl = true }
 hl.DiagnosticUnderlineHint = { sp = "$purple0", undercurl = true }
@@ -250,6 +252,7 @@ hl.Changed = { fg = "$yellow0" }
 -- Language tweaks
 require("darkslate.lang.css")(hl, o)
 require("darkslate.lang.markdown")(hl, o)
+require("darkslate.lang.vimdoc")(hl, o)
 
 -- Plugin highlights
 require("darkslate.plugin.lazy_nvim").highlight(hl, o)
