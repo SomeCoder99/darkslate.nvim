@@ -81,7 +81,8 @@ local M = {
       TypeParamter = "$orange0",
     },
     plugin = require("darkslate.plugin"),
-  }
+  },
+  _did_setup = false,
 }
 
 function M.expand_color(color)
@@ -192,6 +193,8 @@ function M.setup(opts)
       end
     end
   end
+
+  M._did_setup = true
 end
 
 function M.set_colorscheme()
