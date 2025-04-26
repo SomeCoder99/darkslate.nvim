@@ -1,6 +1,9 @@
 local M = {}
 
 function M.tweak_opts(opts)
+  local ds = require("darkslate")
+  if ds.opts.level > 1 then return opts end
+
   opts.override_by_extension = opts.override_by_extension or {}
   local file_extension = require("darkslate.plugin.nvim_web_devicons.file_extension")
   local orig_file_extension = require("nvim-web-devicons.default.icons_by_file_extension")

@@ -42,6 +42,8 @@
 ---
 --- used for completion plugins (e.g [blink.cmp](https://github.com/Saghen/blink.cmp)) icon color
 ---@field kind_color? table<string, string>
+--- colorscheme brightness level (starts at 1)
+---@field level? integer
 --- configuration for specific plugins.
 ---@field plugin? darkslate.opts.plugin
 
@@ -49,6 +51,7 @@ local utils = require("darkslate.utils")
 local M = {
   ---@type darkslate.opts
   opts = {
+    level = 1,
     hl = {},
     kind_color = {
       Text = "$dark10",
@@ -104,11 +107,24 @@ function M.expand_color(color)
 end
 
 function M.reset_color_opt()
-  M.opts.color = vim.tbl_extend("keep", require("darkslate.color"), {})
+  local color = require("darkslate.color")
+  M.opts.color = vim.tbl_extend("keep", color[M.opts.level] or color[1], {})
 end
 
 ---@param opts darkslate.opts
 function M.setup(opts)
+  if opts.level ~= nil then
+    if type(opts.level) == "number" then
+      M.opts.level = math.floor(opts.level)
+    else
+      utils.notify(
+        vim.log.levels.WARN,
+        string.format("when 'setup(opts)' is called, 'opts.level' has type %s", type(opts.level)),
+        "'opt.level' must be a number"
+      )
+    end
+  end
+
   if not M.opts.color then M.reset_color_opt() end
 
   opts = opts or {}
