@@ -1,5 +1,5 @@
 return {
-  {
+  darker = {
     dark0 =         "#000000",
     dark1 =         "#080808",
     dark2 =         "#0e0e0e",
@@ -60,7 +60,7 @@ return {
     purple2 =       "#5c406b",
   },
 
-  {
+  dark = {
     dark0 =         "#101010",
     dark1 =         "#181818",
     dark2 =         "#1e1e1e",

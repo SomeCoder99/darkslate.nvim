@@ -2,17 +2,20 @@ local M = {}
 
 function M.tweak_opts(opts)
   local ds = require("darkslate")
-  local l = ds.opts.level
+  local index = 1
+  if ds.opts.variant == "dark" then
+    return { variant = "light" }
+  end
 
   opts.override_by_extension = opts.override_by_extension or {}
   local file_extension = require("darkslate.plugin.nvim_web_devicons.file_extension")
   local orig_file_extension = require("nvim-web-devicons.default.icons_by_file_extension")
   for ext, color in pairs(file_extension) do
-    if color[l] then
+    if color[index] then
       opts.override_by_extension[ext] = {
         icon = orig_file_extension[ext].icon,
         name = orig_file_extension[ext].name,
-        color = color[l],
+        color = color[index],
       }
     end
   end
@@ -21,11 +24,11 @@ function M.tweak_opts(opts)
   local filename = require("darkslate.plugin.nvim_web_devicons.filename")
   local orig_filename = require("nvim-web-devicons.default.icons_by_filename")
   for fname, color in pairs(filename) do
-    if color[l] then
+    if color[index] then
       opts.override_by_filename[fname] = {
         icon = orig_filename[fname].icon,
         name = orig_filename[fname].name,
-        color = color[l],
+        color = color[index],
       }
     end
   end
@@ -34,11 +37,11 @@ function M.tweak_opts(opts)
   local operating_system = require("darkslate.plugin.nvim_web_devicons.operating_system")
   local orig_operating_system = require("nvim-web-devicons.default.icons_by_operating_system")
   for os, color in pairs(operating_system) do
-    if color[l] then
+    if color[index] then
       opts.override_by_operating_system[os] = {
         icon = orig_operating_system[os].icon,
         name = orig_operating_system[os].name,
-        color = color[l],
+        color = color[index],
       }
     end
   end
@@ -47,11 +50,11 @@ function M.tweak_opts(opts)
   local desktop_environment = require("darkslate.plugin.nvim_web_devicons.desktop_environment")
   local orig_desktop_environment = require("nvim-web-devicons.default.icons_by_desktop_environment")
   for de, color in pairs(desktop_environment) do
-    if color[l] then
+    if color[index] then
       opts.override_by_desktop_environment[de] = {
         icon = orig_desktop_environment[de].icon,
         name = orig_desktop_environment[de].name,
-        color = color[l],
+        color = color[index],
       }
     end
   end
@@ -60,11 +63,11 @@ function M.tweak_opts(opts)
   local window_manager = require("darkslate.plugin.nvim_web_devicons.window_manager")
   local orig_window_manager = require("nvim-web-devicons.default.icons_by_window_manager")
   for wm, color in pairs(window_manager) do
-    if color[l] then
+    if color[index] then
       opts.override_by_window_manager[wm] = {
         icon = orig_window_manager[wm].icon,
         name = orig_window_manager[wm].name,
-        color = color[l],
+        color = color[index],
       }
     end
   end

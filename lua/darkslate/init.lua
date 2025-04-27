@@ -42,8 +42,9 @@
 ---
 --- used for completion plugins (e.g [blink.cmp](https://github.com/Saghen/blink.cmp)) icon color
 ---@field kind_color? table<string, string>
---- colorscheme brightness level (starts at 1)
 ---@field level? integer
+--- colorscheme variant (default to "dark")
+---@field variant? "dark" | "darker"
 --- configuration for specific plugins.
 ---@field plugin? darkslate.opts.plugin
 
@@ -51,7 +52,7 @@ local utils = require("darkslate.utils")
 local M = {
   ---@type darkslate.opts
   opts = {
-    level = 1,
+    variant = "dark",
     hl = {},
     kind_color = {
       Text = "$dark10",
@@ -82,7 +83,6 @@ local M = {
     },
     plugin = require("darkslate.plugin"),
   },
-  _did_setup = false,
 }
 
 function M.expand_color(color)
@@ -109,7 +109,7 @@ end
 
 function M.reset_color_opt()
   local color = require("darkslate.color")
-  M.opts.color = vim.tbl_extend("keep", color[M.opts.level] or color[1], {})
+  M.opts.color = vim.tbl_extend("keep", color[M.opts.variant] or color.dark, {})
 end
 
 M.reset_color_opt()
@@ -120,13 +120,31 @@ function M.setup(opts)
 
   if opts.level ~= nil then
     if type(opts.level) == "number" then
-      M.opts.level = math.floor(opts.level)
+      if opts.level == 1 then
+        M.opts.variant = "darker"
+      else
+        M.opts.variant = "dark"
+      end
       M.reset_color_opt()
     else
       utils.notify(
         vim.log.levels.WARN,
-        string.format("when 'setup(opts)' is called, 'opts.level' has type %s", type(opts.level)),
-        "'opt.level' must be a number"
+        string.format("when 'setup(opts)' is called, 'opts.level' has type %s", type(opts.variant)),
+        "'opt.level' must be a nuber"
+      )
+    end
+  end
+
+
+  if opts.variant ~= nil then
+    if type(opts.variant) == "string" then
+      M.opts.variant = opts.variant
+      M.reset_color_opt()
+    else
+      utils.notify(
+        vim.log.levels.WARN,
+        string.format("when 'setup(opts)' is called, 'opts.level' has type %s", type(opts.variant)),
+        "'opt.level' must be a string"
       )
     end
   end
@@ -193,8 +211,6 @@ function M.setup(opts)
       end
     end
   end
-
-  M._did_setup = true
 end
 
 function M.set_colorscheme()

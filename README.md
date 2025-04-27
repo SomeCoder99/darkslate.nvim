@@ -2,7 +2,6 @@
 A pure dark [Neovim](https://neovim.io) theme written in [Lua](https://lua.org).
 
 ![Dark Slate Theme Preview](https://github.com/SomeCoder99/darkslate.nvim/blob/main/images/preview1.png)
-![Dark Slate Theme Preview](https://github.com/SomeCoder99/darkslate.nvim/blob/main/images/preview2.png)
 
 ## Features
 - Easy to configure
@@ -18,6 +17,7 @@ A pure dark [Neovim](https://neovim.io) theme written in [Lua](https://lua.org).
 - [Saghen/blink.cmp](https://github.com/Saghen/blink.cmp) (source [`blink.lua`](lua/darkslate/plugin/blink.lua))
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim) (source [`lazy_nvim.lua`](lua/darkslate/plugin/lazy_nvim.lua))
 - [nvim-tree/nvim-web-devicons.nvim](https://github.com/nvim-tree/nvim-web-devicons.nvim) (source [`init.lua`](lua/darkslate/plugin/nvim_web_devicons/init.lua))
+- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) (source [`lualine.lua`](lua/darkslate/plugin/lualine.lua)) (lualine theme [`darkslate`](lua/lualine/themes/darkslate.lua))
 
 </details>
 
@@ -37,7 +37,7 @@ A pure dark [Neovim](https://neovim.io) theme written in [Lua](https://lua.org).
       ---@module "darkslate"
       ---@type darkslate.opts
       opts = {
-        level = 2, -- for brighter version
+        variant = "darker", -- theme variant: "dark" | "darker" (default: "dark")
         color = {}, -- create/override color name
         hl = {}, -- create/override highlight group
         plugin = {}, -- plugin specific configuration
@@ -79,5 +79,5 @@ A pure dark [Neovim](https://neovim.io) theme written in [Lua](https://lua.org).
 - Screenshot for blink.cmp
     ![blink.cmp screenshot](https://github.com/SomeCoder99/darkslate.nvim/blob/main/images/screenshot8.png)
 
-- Screenshot for darker nvim-web-devicons
+- Screenshot for darker nvim-web-devicons for `"darker"` variant
     ![Darker nvim-web-devicons screenshot](https://github.com/SomeCoder99/darkslate.nvim/blob/main/images/screenshot9.png)
