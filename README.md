@@ -18,6 +18,7 @@ A pure dark [Neovim](https://neovim.io) theme written in [Lua](https://lua.org).
 - [folke/lazy.nvim](https://github.com/folke/lazy.nvim) (source [`lazy_nvim.lua`](lua/darkslate/plugin/lazy_nvim.lua))
 - [nvim-tree/nvim-web-devicons.nvim](https://github.com/nvim-tree/nvim-web-devicons.nvim) (source [`init.lua`](lua/darkslate/plugin/nvim_web_devicons/init.lua))
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) (source [`lualine.lua`](lua/darkslate/plugin/lualine.lua)) (lualine theme [`darkslate`](lua/lualine/themes/darkslate.lua))
+- [folke/which-key.nvim](https://github.com/folke/which-key.nvim) (source [`which_key.lua`](lua/darkslate/plugin/which_key.lua))
 
 </details>
 
