@@ -262,5 +262,6 @@ require("darkslate.plugin.snacks").highlight(hl, o)
 require("darkslate.plugin.oil").highlight(hl, o)
 require("darkslate.plugin.gitsigns").highlight(hl, o)
 require("darkslate.plugin.lualine").highlight(hl, o)
+require("darkslate.plugin.which_key").highlight(hl, o)
 
 return hl
