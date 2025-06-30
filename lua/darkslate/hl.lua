@@ -25,7 +25,7 @@ hl.ModeMsg = { fg = "$dark14", bold = true }
 hl.MsgArea = { bg = "$dark0", fg = "$dark8" }
 hl.MsgSeparator = { bg = "$dark15", fg = "$dark1" }
 hl.MoreMsg = { fg = "$blue0" }
-hl.NonText = { fg = "$dark8" }
+hl.NonText = { fg = "$dark4" }
 hl.Normal = { bg = "$dark1", fg = "$dark12" }
 hl.NormalFloat = { bg = "$dark1", fg = "$dark12" }
 hl.FloatBorder = { fg = "$dark6" }
@@ -65,13 +65,13 @@ hl.Error = { bg = "$bg_red", fg = "$dark12" }
 
 -- Treesitter highlights
 hl["@variable"] = { fg = "$dark12" }
-hl["@variable.builtin"] = { fg = "$red1" }
+hl["@variable.builtin"] = { fg = "$dark13" }
 hl["@variable.parameter"] = { fg = "$red0" }
 hl["@variable.parameter.builtin"] = { fg = "$red1" }
 hl["@variable.member"] = { fg = "$dark10" }
 
 hl["@constant"] = { fg = "$dark11", bold = true }
-hl["@constant.builtin"] = { fg = "$red0", bold = true }
+hl["@constant.builtin"] = { fg = "$dark12", bold = true }
 hl["@constant.macro"] = { fg = "$dark12" }
 
 hl["@module"] = { fg = "$yellow0" }
@@ -133,8 +133,8 @@ hl["@punctuation"] = { fg = "$dark10" }
 hl["@punctuation.bracket"] = { fg = "$dark9" }
 hl["@punctuation.special"] = { fg = "$dark12" }
 
-hl["@comment"] = { fg = "$dark5", italic = true }
-hl["@comment.documentation"] = { fg = "$dark6" }
+hl["@comment"] = { fg = "$dark4", italic = true }
+hl["@comment.documentation"] = { fg = "$dark5" }
 hl["@comment.error"] = { fg = "$red0" }
 hl["@comment.warning"] = { fg = "$yellow0" }
 hl["@comment.todo"] = { fg = "$blue0" }
