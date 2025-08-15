@@ -38,7 +38,7 @@ A pure dark [Neovim](https://neovim.io) theme written in [Lua](https://lua.org).
       ---@module "darkslate"
       ---@type darkslate.opts
       opts = {
-        variant = "darker", -- theme variant: "dark" | "darker" (default: "dark")
+        variant = "darker", -- theme variant: "dark" | "cold" | "darker" (default: "dark")
         color = {}, -- create/override color name
         hl = {}, -- create/override highlight group
         plugin = {}, -- plugin specific configuration

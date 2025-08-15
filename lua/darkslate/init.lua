@@ -44,7 +44,7 @@
 ---@field kind_color? table<string, string>
 ---@field level? integer
 --- colorscheme variant (default to "dark")
----@field variant? "dark" | "darker"
+---@field variant? "dark" | "darker" | "cold"
 --- configuration for specific plugins.
 ---@field plugin? darkslate.opts.plugin
 
@@ -129,8 +129,8 @@ function M.setup(opts)
     else
       utils.notify(
         vim.log.levels.WARN,
-        string.format("when 'setup(opts)' is called, 'opts.level' has type %s", type(opts.variant)),
-        "'opt.level' must be a nuber"
+        string.format("when 'setup(opts)' is called, 'opts.level' has type %s", type(opts.level)),
+        "'opt.level' must be a number"
       )
     end
   end
@@ -144,7 +144,7 @@ function M.setup(opts)
       utils.notify(
         vim.log.levels.WARN,
         string.format("when 'setup(opts)' is called, 'opts.level' has type %s", type(opts.variant)),
-        "'opt.level' must be a string"
+        "'opt.variant' must be a string"
       )
     end
   end

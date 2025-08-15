@@ -3,8 +3,9 @@ local M = {}
 function M.tweak_opts(opts)
   local ds = require("darkslate")
   local index = 1
-  if ds.opts.variant == "dark" then
-    return { variant = "light" }
+  if ds.opts.variant ~= "darker" then
+    opts.variant = "light"
+    return opts
   end
 
   opts.override_by_extension = opts.override_by_extension or {}
